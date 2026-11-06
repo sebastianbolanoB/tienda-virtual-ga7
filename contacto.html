@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Escríbenos: atención al cliente de TiendaVirtual.">
+  <meta name="theme-color" content="#0f2b3a">
+  <title>Contacto | TiendaVirtual</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛒</text></svg>">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido principal</a>
+
+  <!-- Cabecera común -->
+  <header class="cabecera">
+    <div class="contenedor cabecera__fila">
+      <a class="logo" href="index.html" aria-label="TiendaVirtual, ir al inicio"><span class="logo__icono" aria-hidden="true">🛒</span>Tienda<strong>Virtual</strong></a>
+      <form class="buscador" action="catalogo.html" role="search">
+        <label for="buscar-global" class="solo-lectores">Buscar productos</label>
+        <input id="buscar-global" type="search" name="q" placeholder="Buscar productos…" autocomplete="off">
+        <button type="submit" aria-label="Buscar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      </form>
+      <div class="cabecera__acciones">
+        <div id="cuenta" class="cuenta"></div>
+        <a id="enlace-carrito" class="enlace-carrito" href="carrito.html" aria-label="Carrito de compras"><span aria-hidden="true">🛍️</span><span class="contador-carrito" hidden>0</span></a>
+        <button id="btn-menu" class="btn-menu" aria-expanded="false" aria-controls="menu-principal"><span aria-hidden="true">☰</span><span class="solo-lectores">Abrir menú</span></button>
+      </div>
+    </div>
+    <nav class="navegacion" aria-label="Navegación principal">
+      <div class="contenedor">
+        <ul id="menu-principal" class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="pedidos.html">Mis pedidos</a></li>
+            <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+
+    <div class="contenedor">
+      <div class="titulo-pagina"><h1>Contáctanos</h1><p class="texto-suave">Resolvemos tus dudas sobre pedidos, pagos y devoluciones.</p></div>
+      <div class="contacto">
+        <form id="form-contacto" class="caja" novalidate>
+          <div class="fila-2">
+            <div class="campo"><label for="nombre">Nombre *</label><input id="nombre" name="nombre" autocomplete="name" aria-describedby="error-nombre" required><p id="error-nombre" class="campo__error"></p></div>
+            <div class="campo"><label for="correo">Correo *</label><input id="correo" name="correo" type="email" autocomplete="email" aria-describedby="error-correo" required><p id="error-correo" class="campo__error"></p></div>
+          </div>
+          <div class="campo"><label for="asunto">Asunto *</label><select id="asunto" name="asunto" aria-describedby="error-asunto" required><option value="">Selecciona un asunto</option><option>Estado de mi pedido</option><option>Pagos y facturación</option><option>Cambios y devoluciones</option><option>Otro</option></select><p id="error-asunto" class="campo__error"></p></div>
+          <div class="campo"><label for="mensaje">Mensaje * <span id="contador-msg" class="texto-suave">0/600</span></label><textarea id="mensaje" name="mensaje" rows="5" maxlength="600" aria-describedby="error-mensaje" required></textarea><p id="error-mensaje" class="campo__error"></p></div>
+          <button type="submit" class="btn btn--primario">Enviar mensaje</button>
+        </form>
+        <aside class="caja contacto__info" aria-labelledby="t-canales">
+          <h2 id="t-canales">Otros canales</h2>
+          <ul class="lista-iconos">
+            <li><span aria-hidden="true">📧</span><div><strong>Correo</strong><br>soporte@tiendavirtual.co</div></li>
+            <li><span aria-hidden="true">📞</span><div><strong>Teléfono</strong><br>(601) 000 0000</div></li>
+            <li><span aria-hidden="true">🕗</span><div><strong>Horario</strong><br>Lunes a sábado, 8:00 a. m. a 6:00 p. m.</div></li>
+          </ul>
+          <p class="nota">Datos de contacto ficticios del prototipo.</p>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Pie de página común -->
+  <footer class="pie">
+    <div class="contenedor pie__grid">
+      <section aria-labelledby="pie-1">
+        <p class="logo logo--claro"><span class="logo__icono" aria-hidden="true">🛒</span>Tienda<strong>Virtual</strong></p>
+        <p id="pie-1" class="solo-lectores">Sobre TiendaVirtual</p>
+        <p>Tecnología, hogar y deportes con envíos a toda Colombia.</p>
+      </section>
+      <nav aria-labelledby="pie-2"><h2 id="pie-2">Comprar</h2><ul><li><a href="catalogo.html">Catálogo</a></li><li><a href="carrito.html">Carrito</a></li><li><a href="pedidos.html">Mis pedidos</a></li></ul></nav>
+      <nav aria-labelledby="pie-3"><h2 id="pie-3">Ayuda</h2><ul><li><a href="contacto.html">Contacto</a></li><li><a href="registro.html">Crear cuenta</a></li><li><a href="login.html">Ingresar</a></li></ul></nav>
+      <section aria-labelledby="pie-4"><h2 id="pie-4">Atención</h2><p>Lunes a sábado<br>8:00 a. m. a 6:00 p. m.</p></section>
+    </div>
+    <div class="pie__base"><div class="contenedor">
+      <p>© <span class="anio">2026</span> TiendaVirtual · Prototipo front-end del proyecto formativo SENA · Sebastián Bolaño Barraza · Ficha 3336103 · Instructor: Henry Alfonso Garzón Sánchez</p>
+    </div></div>
+  </footer>
+
+  <!-- Región para avisos emergentes (lectores de pantalla) -->
+  <div id="avisos" class="avisos" role="status" aria-live="polite"></div>
+
+  <script src="js/datos.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/cuenta.js"></script>
+</body>
+</html>

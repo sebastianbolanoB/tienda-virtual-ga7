@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Finaliza tu compra: datos de entrega, método de pago y confirmación.">
+  <meta name="theme-color" content="#0f2b3a">
+  <title>Finalizar compra | TiendaVirtual</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛒</text></svg>">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido principal</a>
+
+  <!-- Cabecera común -->
+  <header class="cabecera">
+    <div class="contenedor cabecera__fila">
+      <a class="logo" href="index.html" aria-label="TiendaVirtual, ir al inicio"><span class="logo__icono" aria-hidden="true">🛒</span>Tienda<strong>Virtual</strong></a>
+      <form class="buscador" action="catalogo.html" role="search">
+        <label for="buscar-global" class="solo-lectores">Buscar productos</label>
+        <input id="buscar-global" type="search" name="q" placeholder="Buscar productos…" autocomplete="off">
+        <button type="submit" aria-label="Buscar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      </form>
+      <div class="cabecera__acciones">
+        <div id="cuenta" class="cuenta"></div>
+        <a id="enlace-carrito" class="enlace-carrito" href="carrito.html" aria-label="Carrito de compras"><span aria-hidden="true">🛍️</span><span class="contador-carrito" hidden>0</span></a>
+        <button id="btn-menu" class="btn-menu" aria-expanded="false" aria-controls="menu-principal"><span aria-hidden="true">☰</span><span class="solo-lectores">Abrir menú</span></button>
+      </div>
+    </div>
+    <nav class="navegacion" aria-label="Navegación principal">
+      <div class="contenedor">
+        <ul id="menu-principal" class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="pedidos.html">Mis pedidos</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+
+    <div class="contenedor">
+      <div class="titulo-pagina"><h1>Finalizar compra</h1></div>
+      <ol class="pasos-indicador" aria-label="Pasos de la compra">
+        <li><span aria-hidden="true">1</span> Entrega</li><li><span aria-hidden="true">2</span> Pago</li><li><span aria-hidden="true">3</span> Confirmación</li>
+      </ol>
+      <div class="checkout">
+        <form id="form-checkout" class="caja" novalidate>
+          <section class="paso" aria-labelledby="p1">
+            <h2 id="p1">1. Datos de entrega</h2>
+            <div class="fila-2">
+              <div class="campo"><label for="destinatario">Nombre de quien recibe *</label><input id="destinatario" name="destinatario" autocomplete="name" aria-describedby="error-destinatario" required><p id="error-destinatario" class="campo__error"></p></div>
+              <div class="campo"><label for="telefono_entrega">Teléfono de contacto *</label><input id="telefono_entrega" name="telefono_entrega" type="tel" inputmode="numeric" autocomplete="tel" placeholder="3001234567" aria-describedby="error-telefono_entrega" required><p id="error-telefono_entrega" class="campo__error"></p></div>
+            </div>
+            <div class="campo"><label for="ciudad">Ciudad *</label><select id="ciudad" name="ciudad" aria-describedby="error-ciudad" required><option value="">Selecciona una ciudad</option></select><p id="error-ciudad" class="campo__error"></p></div>
+            <div class="fila-2">
+              <div class="campo"><label for="direccion">Dirección *</label><input id="direccion" name="direccion" autocomplete="street-address" placeholder="Calle 45 # 13-20 Apto 301" aria-describedby="error-direccion" required><p id="error-direccion" class="campo__error"></p></div>
+              <div class="campo"><label for="barrio">Barrio (opcional)</label><input id="barrio" name="barrio"></div>
+            </div>
+            <div class="acciones"><a class="btn btn--secundario" href="carrito.html">Volver al carrito</a><button type="button" class="btn btn--primario" data-siguiente>Continuar al pago</button></div>
+          </section>
+          <section class="paso" aria-labelledby="p2" hidden>
+            <h2 id="p2">2. Método de pago</h2>
+            <fieldset class="campo grupo-pago" aria-describedby="error-metodo"><legend>Elige cómo quieres pagar *</legend><div id="metodos" class="metodos"></div></fieldset>
+            <p id="error-metodo" class="campo__error"></p>
+            <p class="nota">Este es un prototipo: no se solicitan ni se guardan datos de tarjetas.</p>
+            <div class="acciones"><button type="button" class="btn btn--secundario" data-anterior>Atrás</button><button type="button" class="btn btn--primario" data-siguiente>Revisar pedido</button></div>
+          </section>
+          <section class="paso" aria-labelledby="p3" hidden>
+            <h2 id="p3">3. Confirma tu pedido</h2>
+            <div id="confirmacion"></div>
+            <label class="opcion"><input type="checkbox" name="acepto" aria-describedby="error-acepto"> Acepto los términos y condiciones de compra</label>
+            <p id="error-acepto" class="campo__error"></p>
+            <div class="acciones"><button type="button" class="btn btn--secundario" data-anterior>Atrás</button><button type="submit" class="btn btn--primario btn--grande">Confirmar pedido</button></div>
+          </section>
+        </form>
+        <aside class="resumen caja" aria-labelledby="t-res">
+          <h2 id="t-res">Tu pedido</h2>
+          <ul id="resumen-items" class="resumen__items"></ul>
+          <dl class="resumen__lista">
+            <div><dt>Subtotal</dt><dd id="c-subtotal"></dd></div><div><dt>Envío</dt><dd id="c-envio"></dd></div>
+            <div class="resumen__total"><dt>Total</dt><dd id="c-total"></dd></div>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Pie de página común -->
+  <footer class="pie">
+    <div class="contenedor pie__grid">
+      <section aria-labelledby="pie-1">
+        <p class="logo logo--claro"><span class="logo__icono" aria-hidden="true">🛒</span>Tienda<strong>Virtual</strong></p>
+        <p id="pie-1" class="solo-lectores">Sobre TiendaVirtual</p>
+        <p>Tecnología, hogar y deportes con envíos a toda Colombia.</p>
+      </section>
+      <nav aria-labelledby="pie-2"><h2 id="pie-2">Comprar</h2><ul><li><a href="catalogo.html">Catálogo</a></li><li><a href="carrito.html">Carrito</a></li><li><a href="pedidos.html">Mis pedidos</a></li></ul></nav>
+      <nav aria-labelledby="pie-3"><h2 id="pie-3">Ayuda</h2><ul><li><a href="contacto.html">Contacto</a></li><li><a href="registro.html">Crear cuenta</a></li><li><a href="login.html">Ingresar</a></li></ul></nav>
+      <section aria-labelledby="pie-4"><h2 id="pie-4">Atención</h2><p>Lunes a sábado<br>8:00 a. m. a 6:00 p. m.</p></section>
+    </div>
+    <div class="pie__base"><div class="contenedor">
+      <p>© <span class="anio">2026</span> TiendaVirtual · Prototipo front-end del proyecto formativo SENA · Sebastián Bolaño Barraza · Ficha 3336103 · Instructor: Henry Alfonso Garzón Sánchez</p>
+    </div></div>
+  </footer>
+
+  <!-- Región para avisos emergentes (lectores de pantalla) -->
+  <div id="avisos" class="avisos" role="status" aria-live="polite"></div>
+
+  <script src="js/datos.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

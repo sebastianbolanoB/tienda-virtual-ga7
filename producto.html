@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detalle del producto, ficha técnica y reseñas de los clientes.">
+  <meta name="theme-color" content="#0f2b3a">
+  <title>Producto | TiendaVirtual</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛒</text></svg>">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido principal</a>
+
+  <!-- Cabecera común -->
+  <header class="cabecera">
+    <div class="contenedor cabecera__fila">
+      <a class="logo" href="index.html" aria-label="TiendaVirtual, ir al inicio"><span class="logo__icono" aria-hidden="true">🛒</span>Tienda<strong>Virtual</strong></a>
+      <form class="buscador" action="catalogo.html" role="search">
+        <label for="buscar-global" class="solo-lectores">Buscar productos</label>
+        <input id="buscar-global" type="search" name="q" placeholder="Buscar productos…" autocomplete="off">
+        <button type="submit" aria-label="Buscar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      </form>
+      <div class="cabecera__acciones">
+        <div id="cuenta" class="cuenta"></div>
+        <a id="enlace-carrito" class="enlace-carrito" href="carrito.html" aria-label="Carrito de compras"><span aria-hidden="true">🛍️</span><span class="contador-carrito" hidden>0</span></a>
+        <button id="btn-menu" class="btn-menu" aria-expanded="false" aria-controls="menu-principal"><span aria-hidden="true">☰</span><span class="solo-lectores">Abrir menú</span></button>
+      </div>
+    </div>
+    <nav class="navegacion" aria-label="Navegación principal">
+      <div class="contenedor">
+        <ul id="menu-principal" class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="pedidos.html">Mis pedidos</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+
+    <div class="contenedor">
+      <nav aria-label="Ruta de navegación"><ol id="migas" class="migas"></ol></nav>
+      <section id="detalle" class="detalle" aria-live="polite"></section>
+      <div class="detalle__extra">
+        <section class="caja" aria-labelledby="t-ficha">
+          <h2 id="t-ficha">Ficha técnica</h2>
+          <table class="tabla tabla--ficha"><caption class="solo-lectores">Características del producto</caption><tbody id="ficha"></tbody></table>
+        </section>
+        <section id="resenas" class="caja" aria-labelledby="t-resenas">
+          <h2 id="t-resenas">Opiniones de clientes</h2>
+          <ul id="lista-resenas" class="lista-resenas"></ul>
+          <form id="form-resena" class="form-resena" novalidate>
+            <h3>Escribe tu reseña</h3>
+            <fieldset class="calificar" aria-describedby="error-calificacion">
+              <legend>Tu calificación</legend>
+              <input type="radio" id="estrella5" name="calificacion" value="5"><label for="estrella5" title="5 estrellas"><span class="solo-lectores">5 estrellas</span></label><input type="radio" id="estrella4" name="calificacion" value="4"><label for="estrella4" title="4 estrellas"><span class="solo-lectores">4 estrellas</span></label><input type="radio" id="estrella3" name="calificacion" value="3"><label for="estrella3" title="3 estrellas"><span class="solo-lectores">3 estrellas</span></label><input type="radio" id="estrella2" name="calificacion" value="2"><label for="estrella2" title="2 estrellas"><span class="solo-lectores">2 estrellas</span></label><input type="radio" id="estrella1" name="calificacion" value="1"><label for="estrella1" title="1 estrella"><span class="solo-lectores">1 estrella</span></label>
+            </fieldset>
+            <p id="error-calificacion" class="campo__error"></p>
+            <div class="campo">
+              <label for="comentario">Comentario <span class="texto-suave" id="contador-com">0/500</span></label>
+              <textarea id="comentario" name="comentario" rows="4" maxlength="500" aria-describedby="error-comentario"></textarea>
+              <p id="error-comentario" class="campo__error"></p>
+            </div>
+            <button type="submit" class="btn btn--primario">Publicar reseña</button>
+          </form>
+        </section>
+      </div>
+      <section id="sec-relacionados" class="seccion" aria-labelledby="t-rel">
+        <h2 id="t-rel">También te puede interesar</h2>
+        <div id="relacionados" class="grid-productos"></div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Pie de página común -->
+  <footer class="pie">
+    <div class="contenedor pie__grid">
+      <section aria-labelledby="pie-1">
+        <p class="logo logo--claro"><span class="logo__icono" aria-hidden="true">🛒</span>Tienda<strong>Virtual</strong></p>
+        <p id="pie-1" class="solo-lectores">Sobre TiendaVirtual</p>
+        <p>Tecnología, hogar y deportes con envíos a toda Colombia.</p>
+      </section>
+      <nav aria-labelledby="pie-2"><h2 id="pie-2">Comprar</h2><ul><li><a href="catalogo.html">Catálogo</a></li><li><a href="carrito.html">Carrito</a></li><li><a href="pedidos.html">Mis pedidos</a></li></ul></nav>
+      <nav aria-labelledby="pie-3"><h2 id="pie-3">Ayuda</h2><ul><li><a href="contacto.html">Contacto</a></li><li><a href="registro.html">Crear cuenta</a></li><li><a href="login.html">Ingresar</a></li></ul></nav>
+      <section aria-labelledby="pie-4"><h2 id="pie-4">Atención</h2><p>Lunes a sábado<br>8:00 a. m. a 6:00 p. m.</p></section>
+    </div>
+    <div class="pie__base"><div class="contenedor">
+      <p>© <span class="anio">2026</span> TiendaVirtual · Prototipo front-end del proyecto formativo SENA · Sebastián Bolaño Barraza · Ficha 3336103 · Instructor: Henry Alfonso Garzón Sánchez</p>
+    </div></div>
+  </footer>
+
+  <!-- Región para avisos emergentes (lectores de pantalla) -->
+  <div id="avisos" class="avisos" role="status" aria-live="polite"></div>
+
+  <script src="js/datos.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/producto.js"></script>
+</body>
+</html>

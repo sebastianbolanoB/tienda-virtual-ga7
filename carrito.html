@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Carrito de compras de TiendaVirtual.">
+  <meta name="theme-color" content="#0f2b3a">
+  <title>Carrito | TiendaVirtual</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛒</text></svg>">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido principal</a>
+
+  <!-- Cabecera común -->
+  <header class="cabecera">
+    <div class="contenedor cabecera__fila">
+      <a class="logo" href="index.html" aria-label="TiendaVirtual, ir al inicio"><span class="logo__icono" aria-hidden="true">🛒</span>Tienda<strong>Virtual</strong></a>
+      <form class="buscador" action="catalogo.html" role="search">
+        <label for="buscar-global" class="solo-lectores">Buscar productos</label>
+        <input id="buscar-global" type="search" name="q" placeholder="Buscar productos…" autocomplete="off">
+        <button type="submit" aria-label="Buscar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+      </form>
+      <div class="cabecera__acciones">
+        <div id="cuenta" class="cuenta"></div>
+        <a id="enlace-carrito" class="enlace-carrito" href="carrito.html" aria-label="Carrito de compras"><span aria-hidden="true">🛍️</span><span class="contador-carrito" hidden>0</span></a>
+        <button id="btn-menu" class="btn-menu" aria-expanded="false" aria-controls="menu-principal"><span aria-hidden="true">☰</span><span class="solo-lectores">Abrir menú</span></button>
+      </div>
+    </div>
+    <nav class="navegacion" aria-label="Navegación principal">
+      <div class="contenedor">
+        <ul id="menu-principal" class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="pedidos.html">Mis pedidos</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+
+    <div class="contenedor">
+      <div class="titulo-pagina"><h1>Mi carrito</h1></div>
+      <div id="carrito-vacio" class="vacio" hidden>
+        <p class="vacio__icono" aria-hidden="true">🛍️</p><p><strong>Tu carrito está vacío.</strong></p><p>Explora el catálogo y agrega los productos que te gusten.</p>
+        <a class="btn btn--primario" href="catalogo.html">Ir al catálogo</a>
+      </div>
+      <div id="carrito-lleno" class="carrito" hidden>
+        <section aria-label="Productos en el carrito">
+          <ul id="items-carrito" class="lista-carrito"></ul>
+          <div class="carrito__acciones"><a href="catalogo.html">← Seguir comprando</a><button type="button" id="vaciar" class="btn-texto btn-texto--peligro">Vaciar carrito</button></div>
+        </section>
+        <aside class="resumen caja" aria-labelledby="t-resumen">
+          <h2 id="t-resumen">Resumen</h2>
+          <dl class="resumen__lista">
+            <div><dt>Subtotal</dt><dd id="r-subtotal"></dd></div>
+            <div><dt>Envío</dt><dd id="r-envio"></dd></div>
+            <div class="resumen__total"><dt>Total</dt><dd id="r-total"></dd></div>
+          </dl>
+          <label for="barra-envio" class="solo-lectores">Progreso hacia el envío gratis</label>
+          <progress id="barra-envio" class="barra-envio" value="0"></progress>
+          <p id="msg-envio" class="texto-suave"></p>
+          <a class="btn btn--primario btn--bloque btn--grande" href="checkout.html">Continuar con la compra</a>
+          <p class="texto-suave texto-centro"><span aria-hidden="true">🔒</span> Pago 100 % seguro</p>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Pie de página común -->
+  <footer class="pie">
+    <div class="contenedor pie__grid">
+      <section aria-labelledby="pie-1">
+        <p class="logo logo--claro"><span class="logo__icono" aria-hidden="true">🛒</span>Tienda<strong>Virtual</strong></p>
+        <p id="pie-1" class="solo-lectores">Sobre TiendaVirtual</p>
+        <p>Tecnología, hogar y deportes con envíos a toda Colombia.</p>
+      </section>
+      <nav aria-labelledby="pie-2"><h2 id="pie-2">Comprar</h2><ul><li><a href="catalogo.html">Catálogo</a></li><li><a href="carrito.html">Carrito</a></li><li><a href="pedidos.html">Mis pedidos</a></li></ul></nav>
+      <nav aria-labelledby="pie-3"><h2 id="pie-3">Ayuda</h2><ul><li><a href="contacto.html">Contacto</a></li><li><a href="registro.html">Crear cuenta</a></li><li><a href="login.html">Ingresar</a></li></ul></nav>
+      <section aria-labelledby="pie-4"><h2 id="pie-4">Atención</h2><p>Lunes a sábado<br>8:00 a. m. a 6:00 p. m.</p></section>
+    </div>
+    <div class="pie__base"><div class="contenedor">
+      <p>© <span class="anio">2026</span> TiendaVirtual · Prototipo front-end del proyecto formativo SENA · Sebastián Bolaño Barraza · Ficha 3336103 · Instructor: Henry Alfonso Garzón Sánchez</p>
+    </div></div>
+  </footer>
+
+  <!-- Región para avisos emergentes (lectores de pantalla) -->
+  <div id="avisos" class="avisos" role="status" aria-live="polite"></div>
+
+  <script src="js/datos.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/carrito.js"></script>
+</body>
+</html>
